@@ -33,8 +33,8 @@ class LogementAnalyseXlsx(models.AbstractModel):
 			valus = {
 				'subscription': s.display_name,
 				'partner': s.partner_id.name,
-				'total_dep': sum(f.amount_total for f in exp),
 				'total_rev': sum(f.amount_total for f in inv),
+				'total_dep': sum(f.amount_total for f in exp),
 				'difference': sum(f.amount_total for f in inv) - sum(f.amount_total for f in exp)
 			}
 			liste.append(valus)

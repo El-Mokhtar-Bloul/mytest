@@ -16,19 +16,19 @@
         <t t-call="web.html_container"> 
           <t t-call="web.external_layout">
             <div style="text-align:center">
-              <br/><br/>
+              <br/><br/><br/><br/><br/>
               <h2>Rapport de logement</h2>
               Date début: <span t-esc="date_from"/>
               <br/>
               Date fin: <span t-esc="date_to"/>
               <br/><br/>
-              <table border="1" align="center" cellspacing="0" width="100%" height="50px">
+              <table class="table table-bordered" border="1" align="center" cellspacing="0" width="100%" height="50px">
                 <thead>
                   <tr>
-                    <th><strong>Subscription</strong></th>
-                    <th><strong>Partenaire</strong></th>
-                    <th><strong>Total Depenses</strong></th>
+                    <th><strong>Contrat</strong></th>
+                    <th><strong>Client</strong></th>
                     <th><strong>Total Recettes</strong></th>
+                    <th><strong>Total Depenses</strong></th>
                     <th><strong>Différence</strong></th>
                   </tr>
                 </thead>
@@ -37,8 +37,8 @@
                      <tr>
                       <td><span t-esc="line.get('subscription')"/></td>
                       <td><span t-esc="line.get('partner')"/></td>
-                      <td><span t-esc="line.get('total_dep')"/></td>
                       <td><span t-esc="line.get('total_rev')"/></td>
+                      <td><span t-esc="line.get('total_dep')"/></td>
                       <td><span t-esc="line.get('difference')"/></td>
                     </tr>
                   </t>
