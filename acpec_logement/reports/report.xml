@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+      <record id="action_raport_abonnement" model="ir.actions.report">
+                <field name="name">Reports de logement</field>
+                <field name="model">acpec.logement.report.wizard</field>
+                <field name="report_type">qweb-pdf</field>
+                <field name="report_name">acpec_logement.template_raport_abonnement</field>
+                <field name="report_file">acpec_logement.template_raport_abonnement</field>
+                <field name="binding_model_id" ref="model_acpec_logement_report_wizard"/>
+                <field name="binding_type">report</field>
+      </record>
+        
+      <template id="template_raport_abonnement">
+        <t t-call="web.html_container"> 
+          <t t-call="web.external_layout">
+            <div style="text-align:center">
+              <br/><br/>
+              <h2>Rapport de logement</h2>
+              Date début: <span t-esc="date_from"/>
+              <br/>
+              Date fin: <span t-esc="date_to"/>
+              <br/><br/>
+              <table border="1" align="center" cellspacing="0" width="100%" height="50px">
+                <thead>
+                  <tr>
+                    <th><strong>Subscription</strong></th>
+                    <th><strong>Partenaire</strong></th>
+                    <th><strong>Total Depenses</strong></th>
+                    <th><strong>Total Recettes</strong></th>
+                    <th><strong>Différence</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <t t-foreach="liste" t-as="line">
+                     <tr>
+                      <td><span t-esc="line.get('subscription')"/></td>
+                      <td><span t-esc="line.get('partner')"/></td>
+                      <td><span t-esc="line.get('total_dep')"/></td>
+                      <td><span t-esc="line.get('total_rev')"/></td>
+                      <td><span t-esc="line.get('difference')"/></td>
+                    </tr>
+                  </t>
+                </tbody>
+              </table>
+            </div>
+          </t>
+        </t>
+      </template>
+</odoo>

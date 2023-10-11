@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_acpec_logement_report_wizard_form" model="ir.ui.view">
+        <field name="name">acpec.logement.report.wizard.form</field>
+        <field name="model">acpec.logement.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Acpec Logement Report Wizard">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="logement_ids" widget="many2many_tags"/>
+					<field name="company_id" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="generate_report" string="Imprimer" type="object" class="btn-primary"/>
+                    <button string="Annuler" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_acpec_logement_report_wizard" model="ir.actions.act_window">
+        <field name="name">Analyse SVC logement</field>
+        <field name="res_model">acpec.logement.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_acpec_logement_report_wizard_form"/>
+        <field name="target">new</field>
+        <field name="context">{'form_view_ref': 'view_acpec_logement_report_wizard_form'}</field>
+    </record>
+	
+  
+        <menuitem id="menu_acpec_logement_report_wizard_main" name="Analyse SVC logement"
+		sequence="1000"
+		parent="sale_subscription.menu_sale_subscription_report" action="action_acpec_logement_report_wizard"/>
+
+</odoo>

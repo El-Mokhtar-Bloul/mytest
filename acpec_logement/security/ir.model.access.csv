@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_acpec_logement_report_wizard,Access_Acpec_Logement_Report_Wizard_Name,model_acpec_logement_report_wizard,base.group_user,1,1,1,1
